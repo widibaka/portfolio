@@ -1,11 +1,830 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Widi Dwi Nurcahyo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Widi Dwi Nurcahyo - Fullstack Engineer, SaaS Founder, and System Thinker. Building scalable systems that solve real-world operational problems.">
+    <meta name="keywords" content="Fullstack Engineer, SaaS Founder, System Design, Web Development, Indonesia">
+    <meta name="author" content="Widi Dwi Nurcahyo">
+    <link rel="icon" href="foto.jpeg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="foto.jpeg">
+    <meta name="theme-color" content="#FFFFFF">
+    
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Widi Dwi Nurcahyo - Fullstack Engineer & SaaS Founder">
+    <meta property="og:description" content="Building scalable systems that solve real-world operational problems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="foto.jpeg">
+    <meta property="og:image:alt" content="Widi Dwi Nurcahyo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="foto.jpeg">
+    
+    <title>Widi Dwi Nurcahyo - Fullstack Engineer & SaaS Founder</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Distinctive minimal typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color System */
+            --color-primary: #000000;
+            --color-secondary: #666666;
+            --color-tertiary: #999999;
+            --color-background: #FFFFFF;
+            --color-accent: #0066FF;
+            --color-border: #E5E5E5;
+            
+            /* Typography */
+            --font-display: 'Arial', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            /* Spacing */
+            --space-unit: 1rem;
+            --space-xs: calc(var(--space-unit) * 0.5);
+            --space-sm: calc(var(--space-unit) * 1);
+            --space-md: calc(var(--space-unit) * 2);
+            --space-lg: calc(var(--space-unit) * 4);
+            --space-xl: calc(var(--space-unit) * 6);
+            --space-xxl: calc(var(--space-unit) * 10);
+            
+            /* Animation */
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-primary);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+        
+        /* Background Video */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.60) 0%,
+                rgba(255, 255, 255, 0.67) 50%,
+                rgba(255, 255, 255, 0.60) 100%
+            );
+            z-index: -1;
+            backdrop-filter: blur(2px);
+        }
+        
+        /* Typography Scale */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-sm);
+        }
+        
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            letter-spacing: -0.01em;
+        }
+        
+        p {
+            margin-bottom: var(--space-sm);
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: var(--transition-base);
+            position: relative;
+        }
+        
+        /* Layout */
+        .container-custom {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        section {
+            padding: var(--space-xxl) 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+        section:nth-child(5) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: var(--space-md);
+            right: var(--space-md);
+            z-index: 1000;
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: 2px;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-secondary);
+            cursor: pointer;
+            transition: var(--transition-base);
+            border-right: 1px solid var(--color-border);
+        }
+        
+        .lang-btn:last-child {
+            border-right: none;
+        }
+        
+        .lang-btn.active {
+            background: var(--color-primary);
+            color: var(--color-background);
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: #FAFAFA;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-xl) 0;
+        }
+        
+        .hero-image-container {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .hero-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-border);
+            background: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-tertiary);
+            background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
+        }
+        
+        .hero-title {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 400;
+            color: var(--color-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.5;
+        }
+        
+        .hero-statement {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .hero-motto {
+            margin: var(--space-lg) 0;
+            padding: var(--space-md);
+            border-left: 3px solid var(--color-primary);
+            background: #FAFAFA;
+            max-width: 650px;
+        }
+        
+        .hero-motto-text {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--color-primary);
+            font-style: italic;
+            letter-spacing: -0.01em;
+        }
+        
+        .hero-motto-attribution {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--color-secondary);
+            margin-top: var(--space-sm);
+            font-style: normal;
+        }
+        
+        .hero-metrics {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .metric-item {
+            font-family: var(--font-display);
+            font-size: 0.875rem;
+            color: var(--color-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .metric-item strong {
+            display: block;
+            font-size: 1.125rem;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
+        }
+        
+        /* Button */
+        .btn-primary-custom {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-primary);
+            color: var(--color-background);
+            border: 2px solid var(--color-primary);
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: var(--transition-base);
+            border-radius: 2px;
+        }
+        
+        .btn-primary-custom:hover {
+            background: transparent;
+            color: var(--color-primary);
+        }
+        
+        /* Section Headings */
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-tertiary);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Work Section */
+        .work-item {
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-lg) 0;
+            transition: var(--transition-base);
+        }
+        
+        .work-item:last-child {
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .work-item:hover {
+            padding-left: var(--space-sm);
+        }
+        
+        .work-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.01em;
+        }
+        
+        .work-description {
+            color: var(--color-secondary);
+            margin-bottom: var(--space-sm);
+            font-size: 1.0625rem;
+        }
+        
+        .work-tech {
+            font-size: 0.875rem;
+            color: var(--color-tertiary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .work-link {
+            font-family: var(--font-display);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .work-link::after {
+            content: '→';
+            transition: var(--transition-base);
+        }
+        
+        .work-link:hover::after {
+            transform: translateX(4px);
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 650px;
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: var(--color-primary);
+        }
+        
+        /* Philosophy Section */
+        .philosophy-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .philosophy-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-border);
+            letter-spacing: -0.01em;
+        }
+        
+        .philosophy-item:first-child {
+            border-top: 1px solid var(--color-border);
+        }
+        
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .contact-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: var(--transition-base);
+        }
+        
+        .contact-item:hover::after {
+            width: 100%;
+        }
+        
+        .contact-label {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-tertiary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: var(--space-xl) 0 var(--space-lg);
+            border-top: 1px solid var(--color-border);
+            margin-top: var(--space-xxl);
+        }
+        
+        .footer-text {
+            font-size: 0.875rem;
+            color: var(--color-tertiary);
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --space-xxl: calc(var(--space-unit) * 6);
+            }
+            
+            .video-overlay {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.60) 0%,
+                    rgba(255, 255, 255, 0.68) 50%,
+                    rgba(255, 255, 255, 0.60) 100%
+                );
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--space-xl) 0 var(--space-lg);
+            }
+            
+            .hero-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .hero-image-placeholder {
+                font-size: 2rem;
+            }
+            
+            .hero-motto {
+                margin: var(--space-md) 0;
+                padding: var(--space-sm) var(--space-sm);
+            }
+            
+            .hero-motto-text {
+                font-size: 1rem;
+            }
+            
+            .hero-metrics {
+                gap: var(--space-md);
+            }
+            
+            .language-switcher {
+                top: var(--space-sm);
+                right: var(--space-sm);
+            }
+            
+            .work-item:hover {
+                padding-left: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  test
+    <!-- Background Video -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="3d_katana.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <!-- Video Overlay (untuk menjaga keterbacaan teks) -->
+    <div class="video-overlay"></div>
+    
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="switchLanguage('id')">ID</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container-custom">
+            <!-- Profile Image -->
+            <div class="hero-image-container">
+                <div class="hero-image">
+                    <img src="foto.jpeg" alt="Widi Dwi Nurcahyo">
+                    
+                </div>
+            </div>
+            
+            <h1 class="hero-title" data-en="Widi Dwi Nurcahyo" data-id="Widi Dwi Nurcahyo">Widi Dwi Nurcahyo</h1>
+            <p class="hero-subtitle" data-en="Fullstack Engineer. SaaS Founder. System Thinker." data-id="Fullstack Engineer. Founder SaaS. Pemikir Sistem.">
+                Fullstack Engineer. SaaS Founder. System Thinker.
+            </p>
+            <p class="hero-statement" data-en="I design and build scalable systems that solve real-world operational problems." data-id="Saya merancang dan membangun sistem skalabel yang menyelesaikan masalah operasional di dunia nyata.">
+                I design and build scalable systems that solve real-world operational problems.
+            </p>
+            
+            <!-- Motto -->
+            <div class="hero-motto">
+                <p class="hero-motto-text" data-en="I write code with intention to kill. Strike, forge, and polish my software like my life is on the line. Just like a samurai." data-id="Saya menulis kode dengan niat untuk membunuh. Menyerang, menempa, dan memoles software saya seperti hidup saya dipertaruhkan. Seperti seorang samurai.">
+                    I write code with intention to kill. Strike, forge, and polish my software like my life is on the line. Just like a samurai.
+                </p>
+                <p class="hero-motto-attribution" data-en="— Personal Creed" data-id="— Keyakinan Pribadi">— Personal Creed</p>
+            </div>
+            
+            <div class="hero-metrics">
+                <div class="metric-item">
+                    <strong>76+</strong>
+                    <span data-en="Product Experiments" data-id="Eksperimen Produk">Product Experiments</span>
+                </div>
+                <div class="metric-item">
+                    <strong>3</strong>
+                    <span data-en="Scaled" data-id="Terskalakan">Scaled</span>
+                </div>
+                <div class="metric-item">
+                    <strong>∞</strong>
+                    <span data-en="Lessons" data-id="Pelajaran">Lessons</span>
+                </div>
+            </div>
+            
+            <a href="#work" class="btn-primary-custom" data-en="View Work" data-id="Lihat Karya">View Work</a>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section id="work">
+        <div class="container-custom">
+            <div class="section-label" data-en="Selected Work" data-id="Karya Terpilih">Selected Work</div>
+            
+            <div class="work-item">
+                <h3 class="work-title" data-en="HR SaaS Platform" data-id="Platform SaaS HR">HR SaaS Platform</h3>
+                <p class="work-description" data-en="Enterprise-grade human resource management system serving 20+ companies with automated payroll, attendance tracking, and performance analytics." data-id="Sistem manajemen sumber daya manusia tingkat enterprise yang melayani 50+ perusahaan dengan payroll otomatis, tracking kehadiran, dan analitik performa.">
+                    Enterprise-grade human resource management system serving 20+ companies with automated payroll calculations, attendance tracking, and performance analytics.
+                </p>
+                <p class="work-tech">Bootstrap Framework, CSS, HTML, JQuery, MySQL, PHP, Codeigniter3.1, Python, Flutter, Ubuntu VPS Server.</p>
+                <a href="https://snobadev.com" target="_blank" class="work-link" data-en="More Info" data-id="Info Lebih Lanjut">More Info</a>
+            </div>
+            
+            <div class="work-item">
+                <h3 class="work-title" data-en="ISP Infrastructure System" data-id="Sistem Infrastruktur ISP">ISP Infrastructure System</h3>
+                <p class="work-description" data-en="Network management platform for internet service providers with real-time monitoring, automated billing, and customer relationship tools." data-id="Platform manajemen jaringan untuk penyedia layanan internet dengan monitoring real-time, billing otomatis, dan tools hubungan pelanggan.">
+                    Network management platform for internet service providers with real-time monitoring, automated billing, and customer relationship tools.
+                </p>
+                <p class="work-tech">Ubuntu VPS Server, TR069 protocol, Typescript, MongoDB.</p>
+                <a href="#" class="work-link" data-en="More Info" onclick="alert('Seluruh asset source-code menjadi hak milik PT Lingkar Kabel Telekom');" data-id="Info Lebih Lanjut">More Info</a>
+            </div>
+            
+            <!-- <div class="work-item">
+                <h3 class="work-title" data-en="Embedded Systems Framework" data-id="Framework Sistem Embedded">Embedded Systems Framework</h3>
+                <p class="work-description" data-en="Lightweight framework for IoT devices enabling seamless communication between edge hardware and cloud infrastructure with sub-100ms latency." data-id="Framework ringan untuk perangkat IoT yang memungkinkan komunikasi mulus antara hardware edge dan infrastruktur cloud dengan latensi di bawah 100ms.">
+                    Lightweight framework for IoT devices enabling seamless communication between edge hardware and cloud infrastructure with sub-100ms latency.
+                </p>
+                <p class="work-tech">C++, MQTT, Node-RED, InfluxDB</p>
+                <a href="#" class="work-link" data-en="More Info" data-id="Info Lebih Lanjut">More Info</a>
+            </div> -->
+            
+            <div class="work-item">
+                <h3 class="work-title" data-en="Sales, Inventory, And Finance management system" data-id="Sistem Manajemen Sales, Inventory, dan Finance.">Sales, Inventory, And Finance management system</h3>
+                <p class="work-description" data-en="Internal tooling platform that reduced manual operational tasks by 73% through intelligent workflow semi-automation and API orchestration." data-id="Platform tooling internal perusahaan yang mengurangi tugas operasional manual sebesar 73% melalui otomasi workflow cerdas dan orkestrasi API.">
+                    Internal tooling platform that reduced manual operational tasks by 73% through intelligent workflow semi-automation and API orchestration.
+                </p>
+                <p class="work-tech">Bootstrap Framework, CSS, HTML, JQuery, MySQL, PHP, Codeigniter3.1, Ubuntu VPS Server.</p>
+                <a href="#" class="work-link" data-en="More Info" onclick="alert('Seluruh asset source-code menjadi hak milik PT Zona Karya Mendunia');" data-id="Info Lebih Lanjut">More Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container-custom">
+            <div class="section-label" data-en="About" data-id="Tentang">About</div>
+            <div class="about-content">
+                <p data-en="I'm a fullstack engineer with deep expertise in building web applications from concept to production. Over the past several years, I've founded and scaled an HR SaaS platform that now serves enterprises across Indonesia. My technical foundation spans both software and hardware—from designing ISP infrastructure systems to developing embedded solutions for industrial applications." data-id="Saya adalah fullstack engineer dengan keahlian mendalam dalam membangun aplikasi web dari konsep hingga produksi. Selama beberapa tahun terakhir, saya telah mendirikan dan menskalakan platform SaaS HR yang kini melayani perusahaan-perusahaan di seluruh Indonesia. Fondasi teknis saya mencakup software dan hardware—dari merancang sistem infrastruktur ISP hingga mengembangkan solusi embedded untuk aplikasi industri.">
+                    I'm a fullstack engineer with deep expertise in building web applications from concept to production. Over the past several years, I've founded and scaled an HR SaaS platform that now serves enterprises across Indonesia. My technical foundation spans both software and hardware—from designing ISP infrastructure systems to developing embedded solutions for industrial applications.
+                </p>
+                <p data-en="What drives me is systems thinking—the ability to see how components interact, identify leverage points, and design solutions that scale. I approach problems with analytical rigor, informed by principles from engineering, science, and long-term impact frameworks." data-id="Yang mendorong saya adalah systems thinking—kemampuan untuk melihat bagaimana komponen berinteraksi, mengidentifikasi titik leverage, dan merancang solusi yang dapat diskalakan. Saya mendekati masalah dengan rigor analitis, berdasarkan prinsip dari engineering, sains, dan framework dampak jangka panjang.">
+                    What drives me is systems thinking—the ability to see how components interact, identify leverage points, and design solutions that scale. I approach problems with analytical rigor, informed by principles from engineering, science, and long-term impact frameworks.
+                </p>
+                <p data-en="I'm interested in building tools that create compounding value—systems that improve with use, infrastructure that enables others to build, and solutions that solve foundational problems rather than surface symptoms." data-id="Saya tertarik membangun tools yang menciptakan nilai majemuk—sistem yang membaik dengan penggunaan, infrastruktur yang memungkinkan orang lain membangun, dan solusi yang menyelesaikan masalah fundamental daripada gejala permukaan.">
+                    I'm interested in building tools that create compounding value—systems that improve with use, infrastructure that enables others to build, and solutions that solve foundational problems rather than surface symptoms.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy">
+        <div class="container-custom">
+            <div class="section-label" data-en="Philosophy" data-id="Filosofi">Philosophy</div>
+            <ul class="philosophy-list">
+                <li class="philosophy-item" data-en="System design over coding." data-id="Merancang Sistem, bukan sekedar ngoding.">System design over coding.</li>
+                <li class="philosophy-item" data-en="Long-term over short-term." data-id="Jangka panjang lebih utama dari jangka pendek.">Long-term over short-term.</li>
+                <li class="philosophy-item" data-en="Depth over noise." data-id="Kedalaman lebih utama dari noise.">Depth over noise.</li>
+                <li class="philosophy-item" data-en="Impact over vanity metrics." data-id="Dampak lebih utama dari gengsi.">Impact over vanity metrics.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container-custom">
+            <div class="section-label" data-en="Contact" data-id="Kontak">Contact</div>
+            <div class="contact-links">
+                <div>
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:widibaka55@gmail.com" class="contact-item"><span>[widibaka55@gmail.com]</span></a>
+                </div>
+                <div>
+                    <span class="contact-label">GitHub</span>
+                    <a href="https://github.com/widibaka" target="_blank" rel="noopener noreferrer" class="contact-item">github.com/widibaka</a>
+                </div>
+                <div>
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/widi-dwi-nurcahyo-76374a157" target="_blank" rel="noopener noreferrer" class="contact-item">linkedin.com/in/widi-dwi-nurcahyo-76374a157</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-custom">
+            <p class="footer-text" data-en="© 2026 Widi Dwi Nurcahyo. Building systems that matter." data-id="© 2026 Widi Dwi Nurcahyo. Membangun sistem yang berarti.">
+                © 2026 Widi Dwi Nurcahyo. Building systems that matter.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Language Switcher Script -->
+    <script>
+        // Language switcher functionality
+        let currentLang = 'en';
+        
+        function switchLanguage(lang) {
+            if (currentLang === lang) return;
+            
+            currentLang = lang;
+            
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update content
+            const elements = document.querySelectorAll('[data-en][data-id]');
+            elements.forEach(el => {
+                const text = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+                
+                // Handle different element types
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else if (el.tagName === 'BUTTON' || el.tagName === 'A') {
+                    el.textContent = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Optimize video loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-background video');
+            if (video) {
+                // Pause video on mobile to save bandwidth
+                if (window.innerWidth < 768) {
+                    video.pause();
+                    const overlay = document.querySelector('.video-overlay');
+                    if (overlay) {
+                        overlay.style.background = 'rgba(255, 255, 255, 0.68)';
+                    }
+                }
+                
+                // Handle video load errors gracefully
+                video.addEventListener('error', function() {
+                    console.log('Video could not be loaded. Continuing with static background.');
+                    const videoBg = document.querySelector('.video-background');
+                    if (videoBg) {
+                        videoBg.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
